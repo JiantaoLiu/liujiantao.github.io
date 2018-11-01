@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="I train a classifier with Caltech256 Dataset which is a challenging set of 256 object categories containing a total of 30607 images, by Tensorflow with CUDA cuDNN equipped. It really works much faster">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/11-8.png">
+<meta property="og:image" content="https://jiantaoliu.com/OLDWPIMG/11-8.png">
 <meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/22-8.png">
 <meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/33-8.png">
 <meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/44-8.png">
@@ -25,11 +25,11 @@
 <meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/88-2.png">
 <meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/99-2.png">
 <meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/10.png">
-<meta property="og:updated_time" content="2018-11-01T04:20:54.536Z">
+<meta property="og:updated_time" content="2018-11-01T06:50:58.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What the CNN is looking and how it shifts the attention">
 <meta name="twitter:description" content="I train a classifier with Caltech256 Dataset which is a challenging set of 256 object categories containing a total of 30607 images, by Tensorflow with CUDA cuDNN equipped. It really works much faster">
-<meta name="twitter:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/11-8.png">
+<meta name="twitter:image" content="https://jiantaoliu.com/OLDWPIMG/11-8.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -103,7 +103,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>I train a classifier with Caltech256 Dataset which is a challenging set of 256 object categories containing a total of 30607 images, by Tensorflow with CUDA cuDNN equipped. It really works much faster than my i7-7700 CPU even the GPU(GTX1060/6G) is not the flagship level. Every layer of the CNN has the ability of localization, but this ability will kind of ‘lose’ after Fully Connected layers. Some net like Googlenet is using Average Pooling instead of Fully Connected layers to avoid this kind of thing happen (And that is why I use Googlenet in my previous work for ‘people recognition’ not ‘face’). Class Activation Mapping is proposed by a MITGuy Zhou to solve this issue, it is called Class Activation Mapping which makes CNN possible  ‘Discriminative Localization’. And it is transplantable for other network something like AlexNet, VggNet, GoogleNet, and it can slightly improve the performance. I try some of my photos which are not included in Colteach256 Dataset 256 categories, to see if I will get some funny result(It is a modified VGG).  The hot region is Class Activation Mapping highlights the class-specific discriminative regions. (Both classification and localization)</p>
-<h1 id="Figures"><a href="#Figures" class="headerlink" title="Figures"></a>Figures</h1><p><img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/11-8.png" alt=""> <strong>Figure 1.</strong> In FZU <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/22-8.png" alt=""> <strong>Figure 2.</strong> In Google <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/33-8.png" alt=""> <strong>Figure 3.</strong> In Africa <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/44-8.png" alt=""> <strong>Figure 4.</strong> In Shinjuku <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/55-6.png" alt=""> <strong>Figure 5.</strong> A NBA <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/66-3.png" alt=""> <strong>Figure 6.</strong> A girl <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/77-3.png" alt=""> <strong>Figure 7.</strong> In Stanford University <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/88-2.png" alt=""> <strong>Figure 8.</strong> In Stanford University <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/99-2.png" alt=""> <strong>Figure 9.</strong> At intel <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/10.png" alt=""> <strong>Figure 10.</strong> Iris - 鸢尾花 (The only success predition, since it is in Calteah 256 cats)</p>
+<h1 id="Figures"><a href="#Figures" class="headerlink" title="Figures"></a>Figures</h1><p><img src="https://jiantaoliu.com/OLDWPIMG/11-8.png" alt=""> <strong>Figure 1.</strong> In FZU <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/22-8.png" alt=""> <strong>Figure 2.</strong> In Google <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/33-8.png" alt=""> <strong>Figure 3.</strong> In Africa <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/44-8.png" alt=""> <strong>Figure 4.</strong> In Shinjuku <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/55-6.png" alt=""> <strong>Figure 5.</strong> A NBA <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/66-3.png" alt=""> <strong>Figure 6.</strong> A girl <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/77-3.png" alt=""> <strong>Figure 7.</strong> In Stanford University <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/88-2.png" alt=""> <strong>Figure 8.</strong> In Stanford University <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/99-2.png" alt=""> <strong>Figure 9.</strong> At intel <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/10.png" alt=""> <strong>Figure 10.</strong> Iris - 鸢尾花 (The only success predition, since it is in Calteah 256 cats)</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[1] B. Zhou <em>et al.</em>, “Learning Deep Features for Discriminative Localization.” pp. 2921-2929.</p>
 
       
