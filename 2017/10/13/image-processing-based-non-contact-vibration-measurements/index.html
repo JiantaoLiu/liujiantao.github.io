@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Image processing based non contact vibration measurements | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I proposed a brand new framework for damage identification and modal identification. This is a part of my work. I’ve tried marker tracking,digital image correlation, pattern matching( and then trackin">
+<meta name="keywords" content="OpenCV,Python,Matlab,Image Processing,DHTest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Image processing based non contact vibration measurements">
+<meta property="og:url" content="http://yoursite.com/2017/10/13/image-processing-based-non-contact-vibration-measurements/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="I proposed a brand new framework for damage identification and modal identification. This is a part of my work. I’ve tried marker tracking,digital image correlation, pattern matching( and then trackin">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/11-6.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/22-6.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/33-6.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/44-6.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/55-4.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/77-1.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/88-1.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/99-1.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1010.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1111.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1212.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1313.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1414-e1510550236181.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1515.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1616.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1717.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1818.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1919.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/2020.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/2121.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/2222.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/2323.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/118_0057.2.jpg">
+<meta property="og:updated_time" content="2018-11-01T04:20:54.535Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Image processing based non contact vibration measurements">
+<meta name="twitter:description" content="I proposed a brand new framework for damage identification and modal identification. This is a part of my work. I’ve tried marker tracking,digital image correlation, pattern matching( and then trackin">
+<meta name="twitter:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/11-6.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-image-processing-based-non-contact-vibration-measurements" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/13/image-processing-based-non-contact-vibration-measurements/" class="article-date">
+  <time datetime="2017-10-13T05:02:42.000Z" itemprop="datePublished">2017-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Image-Processing/">Image Processing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Image processing based non contact vibration measurements
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I proposed a brand new framework for damage identification and modal identification. This is a part of my work. I’ve tried marker tracking,digital image correlation, pattern matching( and then tracking the pattern center). They are suitable for certain kind of measurement which deformation or movement is big enough or under a quasi-static  strain problems. They are not good for my work. I required a sub-pixel sensitive measurement technique, and this will out perform the similar work on vibration measurements based on video sequence. To achieve a better result I’ve tried many record device. Including Aptina-MT9P031 programmable machine vision camera,SONY RX10m3 with a powerful 24mm-600mm zoom lens(35mm equivalent)and 1 inch sensor, Nikon D3400,Nikon D3300, Canon 6d,SONY RX100m4,Apple Iphone7 plus,Xiaomi 6. About 200 video clips are recorded and processed in search for better a result.   <strong>To achieve sub-pixel accuracy I got many problems.</strong></p>
+<ul>
+<li>Noise from camera encoding algorithm.</li>
+<li>Noise from background illumination(Sky, Clouds).</li>
+<li>Sudden movement, people, animal or vehicle pass through the frame.</li>
+<li>Camera vibration, system vibration by wind.</li>
+<li>Black level need to be check under every condition.</li>
+<li>Artificial noise comes with pixel binding or skipping(If ROI is applied).</li>
+<li>Error generated by perspective distortion.</li>
+<li>Alignment error of different target object.</li>
+</ul>
+<h1 id="Figures"><a href="#Figures" class="headerlink" title="Figures"></a>Figures</h1><p><img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/11-6.png" alt=""> <strong>Figure 1.</strong> Comparing with industry level high sensitive acceleration sensor.  In door test of a cabon beam. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/22-6.png" alt=""> <strong>Figure 2.</strong> Reference point result. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/33-6.png" alt=""> <strong>Figure 3.</strong> Footage by Aptina-MT9P031 sensor. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/44-6.png" alt=""> <strong>Figure 4.</strong> Result of bot point. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/55-4.png" alt=""> <strong>Figure 5.</strong> Selection done by algorithm. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/77-1.png" alt=""> <strong>Figure 6.</strong> A blend figure. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/88-1.png" alt=""> <strong>Figure 7.</strong> Xiamen WuYuan Bridge. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/99-1.png" alt=""> <strong>Figure 8.</strong> Obtaining the ‘gound truth’ vibration signal of the Xiammen WuYuan Bridge <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1010.png" alt=""> <strong>Figure 9.</strong> Obtaining the ‘gound truth’ vibration signal of the Xiammen WuYuan Bridge <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1111.png" alt=""> <strong>Figure 10.</strong> ‘Gournd truth’ of  six cables on the left <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1212.png" alt=""> <strong>Figure 11.</strong> An alignment operation <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1313.png" alt=""> <strong>Figure 12.</strong> An indoor experiment of an metal beam,comparing with industry level sensor and BOSCH’s <em>Sensortech</em> BMA220 <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1414-e1510550236181.png" alt=""> <strong>Figure 13.</strong> Result of BOSCH’s <em>Sensortech</em> BMA220 <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1515.png" alt=""> <strong>Figure 14.</strong> Very good result <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1616.png" alt=""> <strong>Figure 15.</strong> In field experiment setup <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1717.png" alt=""> <strong>Figure 16.</strong> In field experiment setup <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1818.png" alt=""> <strong>Figure 17.</strong> Noise <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/1919.png" alt=""> <strong>Figure 18.</strong> Good result <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/2020.png" alt=""> <strong>Figure 19.</strong> Angular correction for more accuracy result <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/2121.png" alt=""> <strong>Figure 20.</strong> Angular correction for more accuracy result <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/2222.png" alt=""> <strong>Figure 21.</strong> Bad points selections work done by computer <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/2323.png" alt=""> <strong>Figure 22.</strong> Very good result in recent work <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/118_0057.2.jpg" alt=""> <strong>Figure 23.</strong> My daily work</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/13/image-processing-based-non-contact-vibration-measurements/" data-id="cjny4wflh000v54tmqbd4qrtm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DHTest/">DHTest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Image-Processing/">Image Processing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matlab/">Matlab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/13/a-fast-fourier-color-constancy-algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          A fast Fourier color constancy algorithm
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/13/a-defogging-algorithm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">A defogging algorithm</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Signal-Processing/">Image Signal Processing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Knowledge/">Knowledge</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Log/">Log</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWB/">AWB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AlexNet/">AlexNet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Auto-White-Balance/">Auto White Balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/">CNN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CUDA/">CUDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caffe/">Caffe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caltech256/">Caltech256</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DHTest/">DHTest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep/">Deep</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Demosaic/">Demosaic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Denoise/">Denoise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Feature/">Feature</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlexISP/">FlexISP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Forest-Classifier/">Forest Classifier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPU/">GPU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GoogleNet/">GoogleNet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HIKVISION/">HIKVISION</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ISP/">ISP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image-Processing/">Image Processing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge-Map/">Knowledge Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Motion-magnification/">Motion magnification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phase-based/">Phase-based</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Segmentation/">Segmentation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Transfer-Learning/">Transfer Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/White-Balance/">White Balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cuDNN/">cuDNN</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AWB/" style="font-size: 10px;">AWB</a> <a href="/tags/AlexNet/" style="font-size: 10px;">AlexNet</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Auto-White-Balance/" style="font-size: 10px;">Auto White Balance</a> <a href="/tags/CNN/" style="font-size: 11.67px;">CNN</a> <a href="/tags/CUDA/" style="font-size: 10px;">CUDA</a> <a href="/tags/Caffe/" style="font-size: 13.33px;">Caffe</a> <a href="/tags/Caltech256/" style="font-size: 10px;">Caltech256</a> <a href="/tags/DHTest/" style="font-size: 10px;">DHTest</a> <a href="/tags/Deep/" style="font-size: 10px;">Deep</a> <a href="/tags/Deep-Learning/" style="font-size: 11.67px;">Deep Learning</a> <a href="/tags/DeepLearning/" style="font-size: 11.67px;">DeepLearning</a> <a href="/tags/Demosaic/" style="font-size: 11.67px;">Demosaic</a> <a href="/tags/Denoise/" style="font-size: 10px;">Denoise</a> <a href="/tags/Feature/" style="font-size: 10px;">Feature</a> <a href="/tags/FlexISP/" style="font-size: 10px;">FlexISP</a> <a href="/tags/Forest-Classifier/" style="font-size: 10px;">Forest Classifier</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/GoogleNet/" style="font-size: 10px;">GoogleNet</a> <a href="/tags/HIKVISION/" style="font-size: 10px;">HIKVISION</a> <a href="/tags/ISP/" style="font-size: 11.67px;">ISP</a> <a href="/tags/Image-Processing/" style="font-size: 15px;">Image Processing</a> <a href="/tags/Knowledge-Map/" style="font-size: 10px;">Knowledge Map</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/Matlab/" style="font-size: 20px;">Matlab</a> <a href="/tags/Motion-magnification/" style="font-size: 10px;">Motion magnification</a> <a href="/tags/OpenCV/" style="font-size: 16.67px;">OpenCV</a> <a href="/tags/Phase-based/" style="font-size: 10px;">Phase-based</a> <a href="/tags/Python/" style="font-size: 18.33px;">Python</a> <a href="/tags/Segmentation/" style="font-size: 10px;">Segmentation</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Transfer-Learning/" style="font-size: 11.67px;">Transfer Learning</a> <a href="/tags/White-Balance/" style="font-size: 10px;">White Balance</a> <a href="/tags/cuDNN/" style="font-size: 10px;">cuDNN</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/de-wrinkles-by-gan/">de-Wrinkles by GAN</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/05/style-transfer/">Style Transfer</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/20/study-hard-work-hard/">Study hard, work hard.</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/14/cover-letter/">Cover letter</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Demosaicing and denoising simultaneously | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Traditionally, we do demosaic and denoise in sequence, and this will inevitable result in more error or abnormal noise. Demosacing and denoising together  with an alternating direction multiplier meth">
+<meta name="keywords" content="Matlab,ISP,Demosaic,Denoise,FlexISP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Demosaicing and denoising simultaneously">
+<meta property="og:url" content="http://yoursite.com/2017/10/12/demosaicing-and-denoising-simultaneously/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Traditionally, we do demosaic and denoise in sequence, and this will inevitable result in more error or abnormal noise. Demosacing and denoising together  with an alternating direction multiplier meth">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/55-2.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/66.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/77.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/88.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/99.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/11-4.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/22-4.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/33-4.png">
+<meta property="og:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/44-4.png">
+<meta property="og:updated_time" content="2018-11-01T04:20:54.536Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Demosaicing and denoising simultaneously">
+<meta name="twitter:description" content="Traditionally, we do demosaic and denoise in sequence, and this will inevitable result in more error or abnormal noise. Demosacing and denoising together  with an alternating direction multiplier meth">
+<meta name="twitter:image" content="http://www.jiantaoliu.com/wp-content/uploads/2017/11/55-2.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-demosaicing-and-denoising-simultaneously" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/12/demosaicing-and-denoising-simultaneously/" class="article-date">
+  <time datetime="2017-10-12T14:22:09.000Z" itemprop="datePublished">2017-10-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Image-Signal-Processing/">Image Signal Processing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Demosaicing and denoising simultaneously
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Traditionally, we do demosaic and denoise in sequence, and this will inevitable result in more error or abnormal noise. Demosacing and denoising together  with an alternating direction multiplier method (ADMM) is newly proposed I use this algorithm for some of my photos. <strong>Figure 1.</strong> is a photo I took in Tokyo at night.<strong>Figure 6</strong>. is a photo I took in the largest camera shop in the world, it is an indoor condition which has a evenly distributed illumination. Comparing with other doing demosacing and denoising together algorithm (something like FelxISP), I believe it is not good enough for the actual result. Even the author asserts that it is better than FlexISP when the noise level is high. ADMM appears to have soft edges and lose detail of textures (It is very obvious in <strong>Figure 5.</strong> and <strong>Figure 7.</strong>). even introduce artificial color pattern as we can see in <strong>Figure 3.</strong> or <strong>Figure 7.</strong>. ADMM also has a “deep” option which require Caffe to do the deep work and the result will slightly improve. But judging from my eyes, when the noise level is high,in fact FlexISP is still much better than ADMM.</p>
+<h1 id="Figures"><a href="#Figures" class="headerlink" title="Figures"></a>Figures</h1><p><img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/55-2.png" alt=""> <strong>Figure 1.</strong> A photo I took at night with complex street lighting in Tokyo <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/66.png" alt=""> <strong>Figure 2.</strong> Light box on the left. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/77.png" alt=""> <strong>Figure 3.</strong> Metal cover on the down left. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/88.png" alt=""> <strong>Figure 4.</strong> The vanishing point of this frame. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/99.png" alt=""> <strong>Figure 5.</strong> The girl’s skirt in the foreground。 <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/11-4.png" alt=""> <strong>Figure 6.</strong> A photo I took in the world largest camera shop. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/22-4.png" alt=""> <strong>Figure 7.</strong> The focusing ring textures and the “gold ring” of Nikon. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/33-4.png" alt=""> <strong>Figure 8.</strong> The shoulder screen of Canon. <img src="http://www.jiantaoliu.com/wp-content/uploads/2017/11/44-4.png" alt=""> <strong>Figure 9.</strong> The lenses on the shelves at the top left in this frame</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[1] H. Tan et al., “JOINT DEMOSAICING AND DENOISING OF NOISY BAYER IMAGES WITH ADMM.”[1] H. Tan et al., “JOINT DEMOSAICING AND DENOISING OF NOISY BAYER IMAGES WITH ADMM.” [2] F. Heide et al., “FlexISP: a flexible camera image processing framework,” Acm Transactions on Graphics, vol. 33, no. 6, pp. 231, 2014.[1] F. Heide et al., “FlexISP: a flexible camera image processing framework,” Acm Transactions on Graphics, vol. 33, no. 6, pp. 231, 2014.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/12/demosaicing-and-denoising-simultaneously/" data-id="cjny4wfl1000d54tmdfjhl746" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Demosaic/">Demosaic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Denoise/">Denoise</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FlexISP/">FlexISP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ISP/">ISP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matlab/">Matlab</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/13/a-defogging-algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          A defogging algorithm
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/12/from-bayer-raw-to-image-files/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">From Bayer raw to image files</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Processing/">Image Processing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Image-Signal-Processing/">Image Signal Processing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Knowledge/">Knowledge</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Log/">Log</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWB/">AWB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AlexNet/">AlexNet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Auto-White-Balance/">Auto White Balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/">CNN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CUDA/">CUDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caffe/">Caffe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caltech256/">Caltech256</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DHTest/">DHTest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep/">Deep</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Demosaic/">Demosaic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Denoise/">Denoise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Feature/">Feature</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlexISP/">FlexISP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Forest-Classifier/">Forest Classifier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPU/">GPU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GoogleNet/">GoogleNet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HIKVISION/">HIKVISION</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ISP/">ISP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image-Processing/">Image Processing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge-Map/">Knowledge Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Motion-magnification/">Motion magnification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Phase-based/">Phase-based</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Segmentation/">Segmentation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Transfer-Learning/">Transfer Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/White-Balance/">White Balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cuDNN/">cuDNN</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AWB/" style="font-size: 10px;">AWB</a> <a href="/tags/AlexNet/" style="font-size: 10px;">AlexNet</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Auto-White-Balance/" style="font-size: 10px;">Auto White Balance</a> <a href="/tags/CNN/" style="font-size: 11.67px;">CNN</a> <a href="/tags/CUDA/" style="font-size: 10px;">CUDA</a> <a href="/tags/Caffe/" style="font-size: 13.33px;">Caffe</a> <a href="/tags/Caltech256/" style="font-size: 10px;">Caltech256</a> <a href="/tags/DHTest/" style="font-size: 10px;">DHTest</a> <a href="/tags/Deep/" style="font-size: 10px;">Deep</a> <a href="/tags/Deep-Learning/" style="font-size: 11.67px;">Deep Learning</a> <a href="/tags/DeepLearning/" style="font-size: 11.67px;">DeepLearning</a> <a href="/tags/Demosaic/" style="font-size: 11.67px;">Demosaic</a> <a href="/tags/Denoise/" style="font-size: 10px;">Denoise</a> <a href="/tags/Feature/" style="font-size: 10px;">Feature</a> <a href="/tags/FlexISP/" style="font-size: 10px;">FlexISP</a> <a href="/tags/Forest-Classifier/" style="font-size: 10px;">Forest Classifier</a> <a href="/tags/GPU/" style="font-size: 10px;">GPU</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/GoogleNet/" style="font-size: 10px;">GoogleNet</a> <a href="/tags/HIKVISION/" style="font-size: 10px;">HIKVISION</a> <a href="/tags/ISP/" style="font-size: 11.67px;">ISP</a> <a href="/tags/Image-Processing/" style="font-size: 15px;">Image Processing</a> <a href="/tags/Knowledge-Map/" style="font-size: 10px;">Knowledge Map</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/Matlab/" style="font-size: 20px;">Matlab</a> <a href="/tags/Motion-magnification/" style="font-size: 10px;">Motion magnification</a> <a href="/tags/OpenCV/" style="font-size: 16.67px;">OpenCV</a> <a href="/tags/Phase-based/" style="font-size: 10px;">Phase-based</a> <a href="/tags/Python/" style="font-size: 18.33px;">Python</a> <a href="/tags/Segmentation/" style="font-size: 10px;">Segmentation</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Transfer-Learning/" style="font-size: 11.67px;">Transfer Learning</a> <a href="/tags/White-Balance/" style="font-size: 10px;">White Balance</a> <a href="/tags/cuDNN/" style="font-size: 10px;">cuDNN</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/de-wrinkles-by-gan/">de-Wrinkles by GAN</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/05/style-transfer/">Style Transfer</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/20/study-hard-work-hard/">Study hard, work hard.</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/14/cover-letter/">Cover letter</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
